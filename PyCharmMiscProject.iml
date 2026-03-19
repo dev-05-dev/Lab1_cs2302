@@ -1,8 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<module type="PYTHON_MODULE" version="4">
-  <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$/PyCharmMiscProject" />
-    <orderEntry type="jdk" jdkName="Python 3.13 (PyCharmMiscProject)" jdkType="Python SDK" />
-    <orderEntry type="sourceFolder" forTests="false" />
-  </component>
-</module>
+import sys, os
+
+dir = 'Lab1_cs2302/Labs/Lab3'
+
+IS_COLAB = 'google.colab' in sys.modules
+
+if IS_COLAB:
+    from google.colab import drive
+    if not os.path.ismount("/content/drive"):
+      drive.mount('/content/drive')
+    gdrive_dir = os.path.join('/content/drive/MyDrive/', dir)
+    os.makedirs(gdrive_dir, exist_ok=True)
+    %cd {gdrive_dir}
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+import torchvision
+import plotly.express as px
+
+
+import random
+SEED = 42
+
